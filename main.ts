@@ -1,9 +1,7 @@
 function formatString(input: string, toUpper: boolean = true): string {
   if (toUpper) {
-    console.log(input.toUpperCase());
     return input.toUpperCase();
   } else {
-    console.log(input.toLowerCase());
     return input.toLowerCase();
   }
 }
@@ -11,7 +9,6 @@ function formatString(input: string, toUpper: boolean = true): string {
 function filterByRating(
   items: { title: string; rating: number }[]
 ): { title: string; rating: number }[] {
-  console.log(items.filter((item) => item.rating >= 4));
   return items.filter((item) => item.rating >= 4);
 }
 
@@ -26,7 +23,6 @@ function concatenateArrays<T>(...arrays: T[][]): T[] {
   for (const array of arrays) {
     result.push(...array);
   }
-  console.log(result);
   return result;
 }
 
@@ -40,7 +36,7 @@ class Vehicle {
   }
 
   getInfo() {
-    console.log(`Make: ${this._make}, Year: ${this._year}`);
+    return `Make: ${this._make}, Year: ${this._year}`;
   }
 }
 
@@ -52,7 +48,7 @@ class Car extends Vehicle {
   }
 
   getModel() {
-    console.log(`Model: ${this._model}`);
+    return `Model: ${this._model}`;
   }
 }
 
@@ -60,10 +56,8 @@ const myCar = new Car("Toyota", 2020, "Corolla");
 
 function processValue(value: string | number): number {
   if (typeof value === "string") {
-    console.log(value.length);
     return value.length;
   } else if (typeof value === "number") {
-    console.log(value * 2);
     return value * 2;
   }
   return 0;
@@ -88,7 +82,6 @@ function getMostExpensiveProduct(products: Product[]): Product | null {
       mostExpensive = product;
     }
   });
-  console.log(mostExpensive);
 
   return mostExpensive;
 }
@@ -118,10 +111,8 @@ function getDayType(day: Day): string {
     day === Day.Friday ||
     day === Day.Saturday
   ) {
-    console.log("Weekday");
     return "Weekday";
   } else if (day === Day.Sunday) {
-    console.log("Weekend");
     return "Weekend";
   } else {
     return "Unknown";
